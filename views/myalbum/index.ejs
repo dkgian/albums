@@ -1,0 +1,28 @@
+<% include ../partials/header %> 
+
+     <header class="jumbotron">
+         <div class="container">
+             <h1><span class="glyphicon glyphicon-camera"></span> Sharing your photos </h1>
+             <p>
+                <a class="btn btn-primary btn-lg" href="/myalbum/new">Add New Photo</a>
+             </p>
+         </div>
+     </header>
+     
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% myalbum.forEach(function(myalbum){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= myalbum.image %>">
+                   <div class="caption">
+                       <h4><%= myalbum.name %></h4>
+                   </div>
+                   <p>
+                       <a href="/myalbum/<%= myalbum._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+<% include ../partials/footer %>
